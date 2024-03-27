@@ -1,0 +1,37 @@
+---
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "SK Creates",
+  description = "Портфолио веб-дизайнера и разработчика сайтов",
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="text-pink bg-dark-blue">
+    <div class="flex flex-col min-h-screen p-5 mx-auto my-0 max-w-7xl">
+      <NavBar />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script src="../scripts/app.js"></script>
+  </body>
+</html>

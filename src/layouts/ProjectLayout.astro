@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Tag from "../components/Tag.astro";
+
+import { formatDate } from "../scripts/utils";
+
+const { frontmatter } = Astro.props;
+const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
+---
+
+<BaseLayout title={title}>
+  <main>
+    <section id="hero" class="mt-24 mb-8">
+      <h1 class="mb-8 font-semibold text-4xl">{title}</h1>
+      <ul class="flex flex-col gap-8 mb-20 md:flex-row sm:gap-16">
+        {
+          [
+            ["Инструменты", `${stack}`],
+            ["Объем работы", `${amountOfWork}`],
+            ["Сроки выполнения", `${duration}`],
+            ["Дата публикации", `${formatDate(publishDate)}`],
+          ].map(([heading, content]) => (
+            <li class="">
+              <h2 class="mb-1 text-lg font-bold">{heading}</h2>
+              <p class="leading-normal max-w-64">{content}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <ul
+        class="flex flex-wrap gap-3 p-0 m-0 mb-4 text-base lowercase list-none"
+      >
+        {tags.map((tag) => <Tag content={tag} />)}
+      </ul>
+    </section>
+    <section
+      id="content"
+      class="flex flex-col items-center mb-32 prose prose-pink md:max-w-none prose-img:rounded-md prose-img:first-of-type:mt-0 prose-headings:[width:min(100%,_42rem)]"
+    >
+      <slot />
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  import { timeline, scroll, animate, ScrollOffset, stagger } from "motion";
+
+  // Resize and set opacity for sections in view
+  const AllParagraphs = document.querySelectorAll(
+    "section#content > p:not(:has(img))"
+  );
+  const AllImages = document.querySelectorAll("section#content > p:has(img)");
+
+  AllParagraphs.forEach((p) => {
+    scroll(
+      animate(
+        p,
+        {
+          transform: [
+            "translateY(40%)",
+            "translateY(0%)",
+            "translateY(0%)",
+            "translateY(40%)",
+          ],
+          opacity: [0.4, 1, 1, 0.4],
+        },
+        { easing: [0.4, 0, 0.2, 1] }
+      ),
+      { target: p, offset: [...ScrollOffset.Enter, ...ScrollOffset.Exit] }
+    );
+  });
+
+  AllImages.forEach((image) => {
+    scroll(
+      animate(
+        image,
+        {
+          opacity: [0.6, 1],
+        },
+        { easing: [0.4, 0, 0.2, 1] }
+      ),
+      { target: image, offset: [...ScrollOffset.Enter] }
+    );
+  });
+</script>

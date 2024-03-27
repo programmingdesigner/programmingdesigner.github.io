@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import navLogo from "../assets/logo/nav-logo.png";
+
+interface Props {
+  isHome?: boolean;
+}
+
+const { isHome = false } = Astro.props as Props;
+---
+
+<header class="sticky top-0 z-10 backdrop-blur-sm bg-dark-blue/95">
+  <nav
+    class="flex items-center justify-between py-2 text-sm max-w-7xl"
+    id="#nav"
+  >
+    <a href="/" class="block size-20" id="nav-logo" aria-label="Логотип сайта">
+      <Image src={navLogo} alt="" format="webp" quality="mid" />
+    </a>
+    <ul
+      class="flex flex-row gap-8 max-w-[54%] pb-2 overflow-x-scroll md:pb-0 md:overflow-x-hidden"
+      id="nav-list"
+    >
+      {
+        [
+          ["Работы", "/#projects"],
+          ["Профиль", "/#about"],
+          // ["Курсы", "#courses"],
+          ["Заказать сайт", "/#order"],
+        ].map(([title, url]) => (
+          <li class="whitespace-nowrap">
+            <a
+              href={url}
+              class="block px-5 pt-1 pb-1.5 lowercase rounded-2xl border border-dark-blue/10 transition-all hover:text-blue hover:border-blue"
+            >
+              {title}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <!-- <button
+      id="hamburger-menu"
+      class="relative w-6 h-4 bg-transparent cursor-pointer md:hidden"
+    >
+      {
+        [["translate-y-[-7px]"], [""], ["translate-y-[7px]"]].map(
+          ([styles]) => (
+            <span class={`absolute left-0 w-full h-px bg-pink ${styles}`} />
+          )
+        )
+      }
+    </button> -->
+  </nav>
+</header>

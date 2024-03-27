@@ -1,0 +1,39 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+import Tag from "../components/Tag.astro";
+
+const { projectEntry } = Astro.props;
+const { title, coverImage, tags } = projectEntry.data;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
+if (!images[coverImage.src])
+  throw new Error(
+    `"${coverImage}" does not exist in glob: "/src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+<li class="swiper-slide group flex flex-col mb-4 lg:mb-0">
+  <a href={`/project/${projectEntry.slug}/`} class="block">
+    <picture
+      class="block w-full h-auto mb-4 rounded-md overflow-hidden cursor-[url(/cursor.svg),_pointer]"
+    >
+      <Image
+        src={images[coverImage.src]()}
+        alt={coverImage.alt}
+        format="webp"
+        quality="mid"
+        class="object-cover aspect-[3/4] rounded-md scale-100 group-hover:scale-[1.15] transition-transform duration-200 ease-custom"
+        data-img
+      />
+    </picture>
+    <h2 class="mb-4 text-lg font-semibold capitalize leading-6">
+      {title}
+    </h2>
+  </a>
+  <ul class="flex flex-wrap gap-3 text-base lowercase">
+    {tags.map((tag) => <Tag content={tag} />)}
+  </ul>
+</li>

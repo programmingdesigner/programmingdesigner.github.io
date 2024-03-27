@@ -1,0 +1,17 @@
+---
+interface Props {
+  heading: string;
+  paragraph: string;
+}
+
+const { heading, paragraph } = Astro.props;
+---
+
+<div class="prose prose-pink">
+  <h3 class="mb-4 text-xl capitalize leading-6">
+    {heading}
+  </h3>
+  <p class="mb-14">
+    {paragraph}
+  </p>
+</div>
