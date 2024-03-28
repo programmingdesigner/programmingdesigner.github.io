@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title=`${title} - SRK Creates`>
   <main>
     <section id="hero" class="mt-24 mb-8">
       <h1 class="mb-8 font-semibold text-4xl">{title}</h1>
@@ -57,10 +57,10 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
         p,
         {
           transform: [
-            "translateY(40%)",
-            "translateY(0%)",
-            "translateY(0%)",
-            "translateY(40%)",
+            "translateY(40px)",
+            "translateY(0)",
+            "translateY(0)",
+            "translateY(40px)",
           ],
           opacity: [0.4, 1, 1, 0.4],
         },

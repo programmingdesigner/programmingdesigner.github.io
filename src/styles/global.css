@@ -30,9 +30,17 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/manrope-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 ::selection {
   color: #263d58;
-  background-color: #f97b7f;
+  background-color: #71ABEF;
 }
 
 ::-webkit-scrollbar {

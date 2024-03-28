@@ -20,7 +20,7 @@ export default {
         evenHeight: "repeat(2, 1fr)",
       },
       fontSize: {
-        "4xl-res": "clamp(1.25rem, 0.9163rem + 1.4239vw, 2.625rem)",
+        "4xl-res": "clamp(1rem, 0.9163rem + 1.4239vw, 2.625rem)",
         "5xl-res": "clamp(2rem, 1.6663rem + 1.4239vw, 3.375rem)",
       },
       transitionTimingFunction: {

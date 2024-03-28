@@ -3,7 +3,7 @@ const AllLinks = document?.querySelectorAll("nav a");
 
 // Highlight navlink of a section in view
 const highlightLink = (entries, observer) => {
-  console.log(entries);
+  // console.log(entries);
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       //console.log(entry.target.id);

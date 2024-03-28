@@ -7,11 +7,3 @@ function raf(time) {
   requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
-
-// Hamburger Menu
-// const hamburger = document.querySelector("#hamburger-menu");
-// const nav = document.querySelector("#nav-list");
-
-// hamburger.addEventListener("click", () => {
-//   nav.classList.remove("hidden");
-// });
