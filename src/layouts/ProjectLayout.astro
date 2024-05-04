@@ -9,9 +9,14 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
 ---
 
 <BaseLayout title=`${title} - SRK Creates`>
+  <div
+    class="fixed inset-0 z-50 w-full h-0.5 mb-2 origin-left bg-dark-pink"
+    id="scroll-progress"
+  >
+  </div>
   <main>
     <section id="hero" class="mt-24 mb-8">
-      <h1 class="mb-8 font-semibold text-4xl">{title}</h1>
+      <h1 class="mb-8 text-4xl font-semibold">{title}</h1>
       <ul class="flex flex-col gap-8 mb-20 md:flex-row sm:gap-16">
         {
           [
@@ -45,6 +50,8 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
 <script>
   import { timeline, scroll, animate, ScrollOffset, stagger } from "motion";
 
+  scroll(animate("#scroll-progress", { scaleX: [0, 1] }));
+
   // Resize and set opacity for sections in view
   const AllParagraphs = document.querySelectorAll(
     "section#content > p:not(:has(img))"
@@ -56,17 +63,12 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
       animate(
         p,
         {
-          transform: [
-            "translateY(40px)",
-            "translateY(0)",
-            "translateY(0)",
-            "translateY(40px)",
-          ],
-          opacity: [0.4, 1, 1, 0.4],
+          transform: ["translateY(40px)", "translateY(none)"],
+          opacity: [0.4, 1],
         },
         { easing: [0.4, 0, 0.2, 1] }
       ),
-      { target: p, offset: [...ScrollOffset.Enter, ...ScrollOffset.Exit] }
+      { target: p, offset: [...ScrollOffset.Enter] }
     );
   });
 

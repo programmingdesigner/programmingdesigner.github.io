@@ -50,15 +50,16 @@
 
 ::-webkit-scrollbar-track {
   background: #2d4561;
-  border-left: 1px solid #b16476;
+  /* border-left: 1px solid #b16476; */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #b16476;
+  background: #625473;
+  transition: all ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f97b7f;
+  background: #91749e;
 }
 
 /* Smooth Scroll */

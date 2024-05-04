@@ -1,3 +1,5 @@
+import { animate, scroll } from "motion";
+
 const AllSections = document?.querySelectorAll("section");
 const AllLinks = document?.querySelectorAll("nav a");
 
@@ -9,7 +11,8 @@ const highlightLink = (entries, observer) => {
       //console.log(entry.target.id);
       AllLinks.forEach((link) => {
         if (entry.target.id === link.getAttribute("href").replace("/#", "")) {
-          link.classList.replace("border-dark-blue/10", "border-pink");
+          //link.classList.replace("border-dark-blue/10", "border-pink");
+
         } else {
           link.classList.replace("border-pink", "border-dark-blue/10");
         }

@@ -1,17 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import navLogo from "../assets/logo/nav-logo.png";
-
-interface Props {
-  isHome?: boolean;
-}
-
-const { isHome = false } = Astro.props as Props;
 ---
 
-<header class="sticky top-0 z-10 backdrop-blur-sm bg-dark-blue/95">
+<!-- <div class="fixed inset-0 bg-dark-pink w-full h-0.5 z-50 mb-2"></div> -->
+<header class="sticky top-0 z-10 w-full backdrop-blur-sm bg-dark-blue/95">
   <nav
-    class="flex items-center justify-between py-2 text-sm max-w-7xl"
+    class="flex items-center justify-between py-2 mx-auto text-sm max-w-7xl"
     id="#nav"
   >
     <a href="/" class="block size-20" id="nav-logo" aria-label="Логотип сайта">
@@ -23,18 +18,22 @@ const { isHome = false } = Astro.props as Props;
     >
       {
         [
-          ["Работы", "/#projects"],
-          ["Профиль", "/#about"],
-          // ["Курсы", "#courses"],
-          ["Заказать сайт", "/#order"],
+          ["Работы", "projects"],
+          ["Профиль", "about"],
+          // ["Курсы", "courses"],
+          ["Заказать сайт", "order"],
         ].map(([title, url]) => (
-          <li class="whitespace-nowrap">
+          <li class="whitespace-nowrap relative">
             <a
-              href={url}
-              class="block px-5 pt-1 pb-1.5 lowercase rounded-2xl border border-dark-blue/10 transition-all hover:text-blue hover:border-blue"
+              href={`/#${url}`}
+              class="block px-5 pt-1 pb-1.5 lowercase rounded-2xl border border-dark-blue/10 transition-all hover:text-blue hover:border-blue z-50"
             >
               {title}
             </a>
+            <div
+              class="absolute inset-0 w-full h-full bg-transparent rounded-3xl border border-pink -z-10"
+              id={`${url}-progress`}
+            />
           </li>
         ))
       }

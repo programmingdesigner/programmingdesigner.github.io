@@ -90,9 +90,22 @@ AllSections.forEach((section) => {
   scroll(
     animate(
       section,
-      { opacity: [0.6, 1, 1, 0.6], scale: [0.95, 1, 1, 0.95] },
+      { scale: [0.95, 1, 1, 0.95] },
       { easing: [0, 0, 0.58, 1] }
     ),
     { target: section, offset: [...ScrollOffset.Enter, ...ScrollOffset.Exit] }
+  );
+});
+
+AllImages.forEach((image) => {
+  scroll(
+    animate(
+      image,
+      {
+        opacity: [0.6, 1],
+      },
+      { easing: [0.4, 0, 0.2, 1] }
+    ),
+    { target: image, offset: [...ScrollOffset.Enter] }
   );
 });

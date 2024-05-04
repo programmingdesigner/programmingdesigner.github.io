@@ -24,9 +24,9 @@ const {
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="text-pink bg-dark-blue">
-    <div class="flex flex-col min-h-screen p-5 mx-auto my-0 max-w-7xl">
-      <NavBar />
+  <body class="p-4 md:p-5 text-pink bg-dark-blue">
+    <NavBar />
+    <div class="flex flex-col min-h-screen mx-auto my-0 max-w-7xl">
       <main>
         <slot />
       </main>

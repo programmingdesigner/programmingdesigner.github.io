@@ -10,6 +10,8 @@ import EvenColumns from "../components/EvenColumns.astro";
 import AboutCard from "../components/AboutCard.astro";
 import StatsCounter from "../components/StatsCounter.astro";
 import ServicesCard from "../components/ServicesCard.astro";
+import CourseCard from "../components/CourseCard.astro";
+import Button from "../components/Button.astro";
 
 /* Image Imports */
 import logoOutline from "../assets/logo/logo-outline.svg";
@@ -60,13 +62,13 @@ const projectEntries = (await getCollection("project")).sort(
       Дизайнер и программист
     </h1>
   </section>
-  <section id="projects" class="mb-32">
+  <section id="projects" class="mb-32 scroll-mt-36">
     <div class="swiper">
       <ul class="swiper-wrapper">
         {projectEntries.map((projectEntry) => <ProjectCard {projectEntry} />)}
       </ul>
     </div>
-    <div class="static pt-4 swiper-pagination"></div>
+    <div class="swiper-pagination"></div>
   </section>
   <EvenColumns id="about">
     <AboutCard
@@ -88,14 +90,17 @@ const projectEntries = (await getCollection("project")).sort(
       paragraph="Уделяю внимание валидности кода и адаптивности верстки. Пишу семантический HTML-код с использованием методологии BEM."
     />
   </EvenColumns>
+  <!-- <section id="courses" class="max-w-4xl mx-auto mb-32 scroll-mt-36">
+    <CourseCard />
+  </section> -->
   <EvenColumns id="order">
     <h2
       slot="left-col"
-      class="mb-4 font-serif text-4xl leading-none tracking-wide"
+      class="mb-4 font-serif text-4xl leading-none tracking-wide text-pretty"
     >
       Хотите создать сайт?
     </h2>
-    <p slot="left-col" class="flex mb-6 grow">
+    <p slot="left-col" class="flex mb-6 prose prose-pink grow">
       Узнайте тарифы, просмотрите реальные работы и отзывы. Напишите о том, что
       хотите видеть в Вашем новом проекте.
     </p>
@@ -115,18 +120,11 @@ const projectEntries = (await getCollection("project")).sort(
       />
     </ul>
     <!-- Order Button -->
-    <a
+    <Button
       slot="left-col"
-      href="https://kwork.ru/user/sstudios"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="group relative overflow-clip rounded-3xl w-fit self-center lg:self-start px-6 py-2 text-large uppercase font-semibold
-		before:content-[''] before:absolute before:inset-0 before:bg-dark-blue before:[clip-path:circle(0%_at_50%_50%)] before:-z-10 before:transition-[clip-path] before:duration-300 before:ease-custom before:mix-blend-hue
-		hover:before:[clip-path:circle(70%_at_50%_50%)]
-		after:content-[''] after:absolute after:inset-0 after:bg-pink after:-z-20"
-    >
-      <span class="text-dark-blue">Узнать подробнее</span>
-    </a>
+      link="https://kwork.ru/user/sstudios?ref=2034962"
+      text="Узнать подробнее"
+    />
     <!-- Order Image -->
     <Image
       slot="right-col"
@@ -154,5 +152,6 @@ const projectEntries = (await getCollection("project")).sort(
 </style>
 
 <script src="../scripts/revealAnimations.js"></script>
-<script src="../scripts/highlightNavLink.js"></script>
+<!-- <script src="../scripts/highlightNavLink.js"></script> -->
 <script src="../scripts/projectSlider.js"></script>
+<script src="../scripts/scrollProgress.js"></script>

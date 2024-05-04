@@ -7,6 +7,7 @@ export default {
       pink: "#fe8084", //#F97B7F
       "dark-pink": "#B16476",
       blue: "#71ABEF",
+      gray: "#aeb6bd",
     },
     fontFamily: {
       sans: ["Manrope", "sans-serif"],
