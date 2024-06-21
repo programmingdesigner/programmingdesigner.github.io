@@ -68,6 +68,7 @@ const AnimationSequence = [
     AllImagesPlaceholders,
     {
       opacity: [1, 0],
+      clipPath: ["inset(0)", "inset(0 100% 0 0)"],
     },
   ],
   [
