@@ -6,6 +6,7 @@ const LogoOutline = document.querySelector("[data-logo-outline]");
 const LogoFull = document.querySelector("[data-logo-full]");
 const Nav = document.querySelector("nav");
 const AllImages = document.querySelectorAll("[data-img]");
+const AllImagesPlaceholders = document.querySelectorAll("[data-image-placeholder]");
 
 // Prevent DOMContents from appearing before animation
 window.addEventListener("load", () => {
@@ -62,6 +63,12 @@ const AnimationSequence = [
       transform: ["translateY(-30%)", "translateY(0)"],
     },
     { at: ">" },
+  ],
+  [
+    AllImagesPlaceholders,
+    {
+      opacity: [1, 0],
+    },
   ],
   [
     AllImages,

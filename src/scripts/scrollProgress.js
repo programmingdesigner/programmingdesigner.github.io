@@ -1,7 +1,8 @@
 import { scroll, animate } from "motion";
 
 const allSections = document?.querySelectorAll("section");
-// console.log(allSections);
+const footer = document?.querySelector("footer");
+console.log(allSections); 
 allSections.forEach((section) => {
   // console.log(section.id);
   if (section.id === "hero") {

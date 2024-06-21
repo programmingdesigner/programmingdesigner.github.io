@@ -18,14 +18,15 @@ if (!images[coverImage.src])
 <li class="swiper-slide group flex flex-col mb-4 lg:mb-0">
   <a href={`/project/${projectEntry.slug}/`} class="block">
     <picture
-      class="block w-full h-auto mb-4 rounded-md overflow-hidden cursor-[url(/cursor.svg),_pointer]"
+      class="relative block w-full h-auto mb-4 rounded-md overflow-hidden cursor-[url(/cursor.svg),_pointer]"
     >
+      <div class="absolute z-[100] w-full h-full bg-dark-blue" data-image-placeholder></div>
       <Image
         src={images[coverImage.src]()}
         alt={coverImage.alt}
         format="webp"
         quality="mid"
-        class="object-cover aspect-[3/4] rounded-md scale-100 group-hover:scale-[1.15] transition-transform duration-200 ease-custom"
+        class="object-cover aspect-[3/4] rounded-md scale-100 group-hover:scale-[1.15] transition-transform duration-200 ease-custom z-50"
         data-img
       />
     </picture>

@@ -1,14 +1,14 @@
-<li class="flex flex-col mb-8">
-  <span class="font-serif text-5xl after:content-['+'] after:ml-0.5" data-count="40">
+---
+interface Props {
+  data: string;
+}
+
+const {data} = Astro.props as Props;
+---
+
+<li class="flex flex-col first:mb-8">
+  <span class="font-serif text-5xl after:content-['+'] after:ml-0.5" data-count={data}>
     0
   </span>
     выполненных проектов
 </li>
-<li class="flex flex-col">
-  <span class="font-serif text-5xl after:content-['+'] after:ml-0.5" data-count="30">
-    0
-  </span>
-    положительных отзывов
-</li>
-
-<script src="../scripts/animateCounter.js"></script>

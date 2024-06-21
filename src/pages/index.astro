@@ -77,7 +77,8 @@ const projectEntries = (await getCollection("project")).sort(
       paragraph="Помогаю малому и среднему бизнесу донести свои идеи до клиентов и улучшить показатели ведения бизнеса путем оптимизации проектов под UX."
     />
     <ul slot="left-col" class="flex flex-row gap-10">
-      <StatsCounter />
+      <StatsCounter data="58" />
+      <StatsCounter data="37" />
     </ul>
     <AboutCard
       slot="right-col"
@@ -90,9 +91,6 @@ const projectEntries = (await getCollection("project")).sort(
       paragraph="Уделяю внимание валидности кода и адаптивности верстки. Пишу семантический HTML-код с использованием методологии BEM."
     />
   </EvenColumns>
-  <!-- <section id="courses" class="max-w-4xl mx-auto mb-32 scroll-mt-36">
-    <CourseCard />
-  </section> -->
   <EvenColumns id="order">
     <h2
       slot="left-col"
@@ -138,6 +136,9 @@ const projectEntries = (await getCollection("project")).sort(
       data-img
     />
   </EvenColumns>
+  <!-- <section id="courses" class="max-w-4xl mx-auto mb-32 scroll-mt-36">
+    <CourseCard />
+  </section> -->
 </BaseLayout>
 
 <style>
@@ -153,5 +154,6 @@ const projectEntries = (await getCollection("project")).sort(
 
 <script src="../scripts/revealAnimations.js"></script>
 <!-- <script src="../scripts/highlightNavLink.js"></script> -->
+<script src="../scripts/animateCounter.js"></script>
 <script src="../scripts/projectSlider.js"></script>
 <script src="../scripts/scrollProgress.js"></script>
