@@ -84,6 +84,9 @@ scroll(animate("#scroll-progress", { scaleX: [0, 1] }));
 const AllParagraphs = document.querySelectorAll(
   "section#content > p:not(:has(img))"
 );
+const AllHeadings = document.querySelectorAll(
+  "section#content > h2"
+);
 
 AllParagraphs.forEach((p) => {
   scroll(
@@ -96,6 +99,20 @@ AllParagraphs.forEach((p) => {
       { easing: [0.4, 0, 0.2, 1] }
     ),
     { target: p, offset: [...ScrollOffset.Enter] }
+  );
+});
+
+AllHeadings.forEach((h2) => {
+  scroll(
+    animate(
+      h2,
+      {
+        transform: ["translateY(40px)", "translateY(none)"],
+        opacity: [0.4, 1],
+      },
+      { easing: [0.4, 0, 0.2, 1] }
+    ),
+    { target: h2, offset: [...ScrollOffset.Enter] }
   );
 });
 
