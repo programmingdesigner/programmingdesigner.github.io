@@ -9,6 +9,8 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
 ---
 
 <BaseLayout title=`${title} - SRK Creates`>
+  <div id="preloader" class="absolute inset-0 z-50 w-100 h-dvh bg-dark-blue">
+  </div>
   <div
     class="fixed inset-0 z-50 w-full h-0.5 mb-2 origin-left bg-dark-pink"
     id="scroll-progress"
@@ -16,8 +18,8 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
   </div>
   <main>
     <section id="hero" class="mt-24 mb-8">
-      <h1 class="mb-8 text-4xl font-semibold">{title}</h1>
-      <ul class="flex flex-col gap-8 mb-20 md:flex-row sm:gap-16">
+      <h1 class="mb-8 text-4xl font-semibold splt">{title}</h1>
+      <ul class="flex flex-col gap-8 mb-20 md:flex-row sm:gap-16" id="stats">
         {
           [
             ["Инструменты", `${stack}`],
@@ -34,6 +36,7 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
       </ul>
       <ul
         class="flex flex-wrap gap-3 p-0 m-0 mb-4 text-base lowercase list-none"
+        id="tags"
       >
         {tags.map((tag) => <Tag content={tag} />)}
       </ul>
@@ -47,41 +50,4 @@ const { title, tags, stack, amountOfWork, duration, publishDate } = frontmatter;
   </main>
 </BaseLayout>
 
-<script>
-  import { timeline, scroll, animate, ScrollOffset, stagger } from "motion";
-
-  scroll(animate("#scroll-progress", { scaleX: [0, 1] }));
-
-  // Resize and set opacity for sections in view
-  const AllParagraphs = document.querySelectorAll(
-    "section#content > p:not(:has(img))"
-  );
-  const AllImages = document.querySelectorAll("section#content > p:has(img)");
-
-  AllParagraphs.forEach((p) => {
-    scroll(
-      animate(
-        p,
-        {
-          transform: ["translateY(40px)", "translateY(none)"],
-          opacity: [0.4, 1],
-        },
-        { easing: [0.4, 0, 0.2, 1] }
-      ),
-      { target: p, offset: [...ScrollOffset.Enter] }
-    );
-  });
-
-  AllImages.forEach((image) => {
-    scroll(
-      animate(
-        image,
-        {
-          opacity: [0.6, 1],
-        },
-        { easing: [0.4, 0, 0.2, 1] }
-      ),
-      { target: image, offset: [...ScrollOffset.Enter] }
-    );
-  });
-</script>
+<script src="../scripts/animateProjectPage.js"></script>
