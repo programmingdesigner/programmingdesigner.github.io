@@ -2,7 +2,9 @@ import splt from "spltjs";
 import { timeline, scroll, animate, ScrollOffset, stagger } from "motion";
 
 const Preloader = document.getElementById("preloader");
-const HeroImage = document.querySelectorAll("section#content > p:has(img):first-of-type");
+const HeroImage = document.querySelectorAll(
+  "section#content > p:has(img):first-of-type"
+);
 const AllImages = document.querySelectorAll("section#content > p:has(img)");
 const StatsList = document.querySelectorAll("#stats");
 const TagsList = document.querySelectorAll("#tags>li");
@@ -19,11 +21,7 @@ splt({
 
 // Animate hero section on page load
 const AnimationSequence = [
-  [
-    Preloader, 
-    { scale: [1, 0] }, 
-    { duration: 0.1 }
-  ],
+  [Preloader, { scale: [1, 0] }, { duration: 0.1 }],
   [
     ".reveal",
     {
@@ -38,7 +36,7 @@ const AnimationSequence = [
   ],
   [
     StatsList,
-    { 
+    {
       opacity: [0, 1],
       transform: ["translateY(-30px)", "translateY(0)"],
     },
@@ -46,18 +44,18 @@ const AnimationSequence = [
       duration: 0.4,
       ease: [0.42, 0, 0.58, 1], // ease: [.42,0,1,1]
       at: "-0.4", // at: ">"
-    }
+    },
   ],
   [
     TagsList,
-    { 
+    {
       opacity: [0, 1],
       scale: [0.8, 1],
     },
     {
       delay: stagger(0.2),
       at: "-0.4", // at: ">"
-    }
+    },
   ],
   [
     HeroImage,
@@ -84,9 +82,7 @@ scroll(animate("#scroll-progress", { scaleX: [0, 1] }));
 const AllParagraphs = document.querySelectorAll(
   "section#content > p:not(:has(img))"
 );
-const AllHeadings = document.querySelectorAll(
-  "section#content > h2"
-);
+const AllHeadings = document.querySelectorAll("section#content > h2");
 
 AllParagraphs.forEach((p) => {
   scroll(

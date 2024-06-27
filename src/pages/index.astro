@@ -10,7 +10,7 @@ import EvenColumns from "../components/EvenColumns.astro";
 import AboutCard from "../components/AboutCard.astro";
 import StatsCounter from "../components/StatsCounter.astro";
 import ServicesCard from "../components/ServicesCard.astro";
-import CourseCard from "../components/CourseCard.astro";
+/*import CourseCard from "../components/CourseCard.astro";*/
 import Button from "../components/Button.astro";
 
 /* Image Imports */
@@ -77,8 +77,8 @@ const projectEntries = (await getCollection("project")).sort(
       paragraph="Помогаю малому и среднему бизнесу донести свои идеи до клиентов и улучшить показатели ведения бизнеса путем оптимизации проектов под UX."
     />
     <ul slot="left-col" class="flex flex-row gap-10">
-      <StatsCounter data="58" />
-      <StatsCounter data="37" />
+      <StatsCounter data="60" />
+      <StatsCounter data="38" />
     </ul>
     <AboutCard
       slot="right-col"
@@ -105,7 +105,7 @@ const projectEntries = (await getCollection("project")).sort(
     <ul slot="left-col" class="mb-2 divide-y divide-dark-pink">
       <ServicesCard
         title="Дизайн"
-        services={["Адаптивный дизайн", "Протитип", "Анимации"]}
+        services={["Адаптивный дизайн", "Прототип", "Анимации"]}
       />
       <ServicesCard
         title="Разработка"
