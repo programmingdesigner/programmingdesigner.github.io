@@ -1,14 +1,18 @@
 ---
 interface Props {
   data: string;
+  description: string;
 }
 
-const {data} = Astro.props as Props;
+const { data, description } = Astro.props as Props;
 ---
 
 <li class="flex flex-col first:mb-8">
-  <span class="font-serif text-5xl after:content-['+'] after:ml-0.5" data-count={data}>
+  <span
+    class="font-serif text-5xl after:content-['+'] after:ml-0.5"
+    data-count={data}
+  >
     0
   </span>
-    выполненных проектов
+  {description}
 </li>
